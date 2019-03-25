@@ -1,0 +1,7 @@
+p{
+    margin: 0;
+}
+button:hover{
+    background-color: red;
+    color: white;
+}
