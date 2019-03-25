@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { QuotesComponent } from './quotes/quotes.component';
 import { QuoteDetailsComponent } from './quote-details/quote-details.component';
 import { DateCountPipe } from './date-count.pipe';
-import { GoalFormComponent } from './goal-form/goal-form.component';
 import { QuotesFormComponent } from './quotes-form/quotes-form.component';
 import { HighlightDirective } from './highlight.directive';
 
@@ -16,8 +15,7 @@ import { HighlightDirective } from './highlight.directive';
     QuotesComponent,
     QuoteDetailsComponent,
     DateCountPipe,
-    GoalFormComponent,
-    QuotesFormComponent,
+      QuotesFormComponent,
     HighlightDirective
   ],
   imports: [
