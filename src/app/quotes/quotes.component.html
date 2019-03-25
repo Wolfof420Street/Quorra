@@ -1,3 +1,36 @@
-<p>
-  quotes works!
-</p>
+<header class="head">
+  <h2>Quorras</h2>
+</header>
+<div class="container-fluid">
+  <div class="incoming-form">
+    <h3>Enter Your KaQuorra Quote here</h3>
+    <hr>
+    <app-quotes-form class="form" (addNewQuote)='addQuote($event)'></app-quotes-form>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Quotes</h3>
+      <hr>
+    </div>
+    <div class="col-md-4 content" *ngFor="let quoteID of newQuotes; let i = index">
+      <div id="{{i}}" appHighlight *ngIf="quoteID.vote===maxCount && quoteID.vote>0">
+         {{maxCount}}
+      </div>
+      <div>
+        <h5 id="{{i}}">{{quoteID.txtQuote}}</h5>
+        <p id="{{i}}">{{quoteID.date|dateCount}} days ago</p>
+        <p (click)='highVotes(i)'>Highlight</p> -->
+        <button class="btn btn-link" (click)="detailsToggle(i)">Details</button>
+        <button class="btn btn-success" (click)="addVotes(i)">
+          <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>
+        </button>
+        <button class="btn btn-danger" (click)="minusVotes(i)">
+          <i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i>
+        </button>
+        <app-quotes-details *ngIf="quoteID.showDetails" [quotes]='quoteID' (toDelete)=quoteDeleted($event,i)></app-quotes-details>
+      </div>
+    </div>
+  </div>
+</div>
