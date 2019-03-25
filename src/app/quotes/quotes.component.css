@@ -2,7 +2,7 @@ header {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 25px;
-  background-image: url(https://image.slidesharecdn.com/presentation2-160913163712/95/hd-wallpapers-high-definition-100-quality-hd-desktop-wallpapers-1-638.jpg?cb=1473785289);
+  background-image: url(background.jpg);
   background-attachment: fixed;
   background-size: cover;
   color: white;
@@ -10,7 +10,7 @@ header {
 }
 
 .head h2 {
-  font-size: 200px;
+  font-size: 420px;
 }
 
 .container-fluid {
