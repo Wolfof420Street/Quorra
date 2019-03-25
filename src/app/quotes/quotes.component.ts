@@ -15,7 +15,8 @@ export class QuotesComponent implements OnInit {
     new Quotes(3,'Ogden Nash', 'Candy is dandy. But liquor is quicker',new Date(2017,2,25)),
     new Quotes(4,'Ernest Hemingway', 'Always do sober what you said you’d do drunk. That will teach you to keep your mouth shut.',new Date(2019,3,20)),
     new Quotes(5,'William Butler Yeats', 'The worst thing about some men is that when they are not drunk they are sober.',new Date(2018,6,25)),
-    new Quotes(6,'Richard Brinsley Sheridan', 'A bumper of good liquor will end a contest quicker than justice, judge, or vicar.',new Date(2019,2,25)),
+    new Quotes(6,'Richard Brinsley Sheridan', 'A bumper of good liquor will end a contest quicker than justice, judge, or vicar.',new Date(2019,2,25))
+  ]
 
    detailsToggle(index){
     this.newQuotes[index].showDetails=!this.newQuotes[index].showDetails;
