@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DateCountPipe implements PipeTransform {
 
   transform(value: any):number{
-    let today:Date = new Date();  Get the current date
+    let today:Date = new Date(); 
     let todayWithNoTime:any = new Date(today);
     var dateDifference = todayWithNoTime-value;
     const secondsInDay = 86400;
