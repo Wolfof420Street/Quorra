@@ -1,4 +1,4 @@
-import {Quote} from './quote';
+import {Quote} from './quotes';
 export var Quotes:Quote[]=
   [
    new Quotes(1,'Francis Scott Key Fitzgerald','First you take a drink, then the drink takes a drink, then the drink takes you.',new Date(2019,0,25)),

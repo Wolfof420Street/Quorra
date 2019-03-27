@@ -4,19 +4,18 @@ import { Quotes } from '../quotes';
 @Component({
   selector: 'app-quotes',
   templateUrl: './quotes.component.html',
+  providers:[QuoteService],
   styleUrls: ['./quotes.component.css']
+
 })
 export class QuotesComponent implements OnInit {
   public maxCount =0;
 
-  newQuotes = [
-    new Quotes(1,'Francis Scott Key Fitzgerald','First you take a drink, then the drink takes a drink, then the drink takes you.',new Date(2019,0,25)),
-    new Quotes(2,'Lu Yu','Its liquor is like the sweetest dew from Heaven.',new Date(2018,2,29)),
-    new Quotes(3,'Ogden Nash', 'Candy is dandy. But liquor is quicker',new Date(2017,2,25)),
-    new Quotes(4,'Ernest Hemingway', 'Always do sober what you said you’d do drunk. That will teach you to keep your mouth shut.',new Date(2019,3,20)),
-    new Quotes(5,'William Butler Yeats', 'The worst thing about some men is that when they are not drunk they are sober.',new Date(2018,6,25)),
-    new Quotes(6,'Richard Brinsley Sheridan', 'A bumper of good liquor will end a contest quicker than justice, judge, or vicar.',new Date(2019,2,25))
-  ]
+  quotes:Quote[];
+  alertService : AlertsService
+  constructor(quoteService:QuoteService) {
+  this.quotes = quoteService.getQuotes()
+   }
 
    detailsToggle(index){
     this.newQuotes[index].showDetails=!this.newQuotes[index].showDetails;
@@ -46,6 +45,7 @@ export class QuotesComponent implements OnInit {
   quoteDeleted(del, index){
     if(del){
       this.newQuotes.splice(index,1);
+      this.alertService.alertMe("Quote has been deleted")
     }
   }
 
@@ -59,8 +59,10 @@ export class QuotesComponent implements OnInit {
     console.log(quote.date);
     console.log(quote.txtQuote);
   }
-  constructor() { }
-
+  constructor(quoteService:QuoteService,alertService:AlertsService) {
+  this.quotes = quoteService.getQuotes();
+  this.alertService = alertService; //make the service available to the class
+   }
   ngOnInit() {
   }
 
