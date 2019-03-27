@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Quotes } from '../quotes';
 import {HttpClient} from '@angular/common/http'
 import {Quote} from '../quote-class/quote'
+import {QuoteRequestService} from '../quote-http/quote-request.service'
 
 
 @Component({
   selector: 'app-quotes',
   templateUrl: './quotes.component.html',
-  providers:[QuoteService],
+  providers:[QuoteService,QuoteRequestService],
   styleUrls: ['./quotes.component.css']
 
 })
@@ -18,7 +19,7 @@ export class QuotesComponent implements OnInit {
   alertService : AlertsService
   constructor(quoteService:QuoteService) {
   this.quotes = quoteService.getQuotes()
-   }
+     }
 
    detailsToggle(index){
     this.newQuotes[index].showDetails=!this.newQuotes[index].showDetails;
@@ -62,7 +63,7 @@ export class QuotesComponent implements OnInit {
     console.log(quote.date);
     console.log(quote.txtQuote);
   }
-  constructor(quoteService:QuoteService,alertService:AlertsService) {
+  constructor(quoteService:QuoteService,alertService:AlertsService,quoteService:QuoteRequestService) {
   this.quotes = quoteService.getQuotes();
   this.alertService = alertService; //make the service available to the class
    }
@@ -71,6 +72,8 @@ export class QuotesComponent implements OnInit {
        quote:string;
        author:string
    }
+   this.quoteService.quoteRequest()
+  this.quote=this.quoteService.quote
    this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json (Links to an external site.)Links to an external site.").subscribe(data=>{
        this.quote= new Quote(data.quote,data.author)
    }, err=>{

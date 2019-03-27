@@ -29,8 +29,7 @@ import { HighlightDirective } from './highlight.directive';
     NgProgressModule.forRoot(),// normal progress bar
     NgProgressHttpModule // progress bar to load http requests
   ],
-  export class AppModule { }
   providers: [AlertsService],
   bootstrap: [AppComponent]
-})
-export class AppModule { }
+}
+ export class Appmodule ()
