@@ -1,9 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AlertsService} from './alert-service/alerts.service'
-import {HttpClientModule} from '@angular/common/http'
-import { NgProgressModule } from '@ngx-progressbar/core';
-import { NgProgressHttpModule } from '@ngx-progressbar/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,17 +15,14 @@ import { HighlightDirective } from './highlight.directive';
     QuotesComponent,
     QuoteDetailsComponent,
     DateCountPipe,
-      QuotesFormComponent,
+    QuotesFormComponent,
     HighlightDirective
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgProgressModule.forRoot(),// normal progress bar
-    NgProgressHttpModule // progress bar to load http requests
+    AppRoutingModule
   ],
-  providers: [AlertsService],
+  providers: [],
   bootstrap: [AppComponent]
-}
- export class Appmodule ()
+})
+export class AppModule { }
