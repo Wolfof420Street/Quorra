@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Quotes } from '../quotes';
+import {HttpClient} from '@angular/common/http'
+import {Quote} from '../quote-class/quote'
+
 
 @Component({
   selector: 'app-quotes',
@@ -64,6 +67,16 @@ export class QuotesComponent implements OnInit {
   this.alertService = alertService; //make the service available to the class
    }
   ngOnInit() {
+    interface ApiResponse{
+       quote:string;
+       author:string
+   }
+   this.http.get<ApiResponse>("http://quotes.stormconsultancy.co.uk/random.json (Links to an external site.)Links to an external site.").subscribe(data=>{
+       this.quote= new Quote(data.quote,data.author)
+   }, err=>{
+         this.quote= new Quote("Never, never, never give up.","winston churchill")
+         console.log("Error occured ")
+     })
   }
 
 }
