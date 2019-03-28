@@ -42,7 +42,7 @@ export class QuotesComponent implements OnInit {
        console.log("Maximum is: "+max);
      }
    }
-
+constructor() { }
   quoteDeleted(del, index){
     if(del){
       this.newQuotes.splice(index,1);
