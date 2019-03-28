@@ -15,6 +15,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes:Routes=[
   {path:"quotes",component:QuotesComponent},
   {path:"about",component:AboutComponent}
+  {path:"",redirectTo:"/quotes",pathMatch:"full"},
+  {path:'**',component:NotFoundComponent}
 ]
 @NgModule({
   declarations: [
